@@ -8,8 +8,8 @@ These problems illustrate concepts that previous problems have not emphasized:
   -- animation (Problem 0c)
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Tiarnan Rice.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -146,7 +146,7 @@ def problem0a(n):
            since (2 + 4 + 6) is 12, which is NOT odd.
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -163,6 +163,11 @@ def problem0a(n):
     #        Simply try a few examples to convince yourself of this.
     #        ASK FOR HELP if you do not understand this hint.
     # ------------------------------------------------------------------
+
+    if sum_of_digits(n) % 2 == 0:
+        return False
+    else:
+        return True
 
 
 def run_test_problem0b():
@@ -218,7 +223,7 @@ def problem0b(n):
            since there are 46 primes between 2 and 200.
      """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -227,6 +232,13 @@ def problem0b(n):
     #    **  use (call) the   is_prime   function that is DEFINED ABOVE.
     ####################################################################
     # ------------------------------------------------------------------
+    count = 0
+    for k in range(2, n+1):
+        if is_prime(k):
+            count = count + 1
+
+    return count
+
 
 
 def run_test_problem0c():
@@ -294,6 +306,20 @@ def problem0c(circle, n, window):
     #   renders with a half-second pause after rendering.
     ####################################################################
     # ------------------------------------------------------------------
+
+    circle.attach_to(window)
+    radius = circle.radius
+    center = circle.center
+    center.x = center.x + radius * 2
+    for k in range(n):
+        circle1 = rg.Circle(center, radius)
+        center.x = center.x + radius *2
+        circle1.attach_to(window)
+        window.render(0.5)
+
+#CIRCLES GENERATE IN THE WRONG ORDER, DONT KNOW WHY
+
+
 
 
 # ----------------------------------------------------------------------
