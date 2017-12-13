@@ -298,7 +298,7 @@ def problem0c(circle, n, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -309,17 +309,13 @@ def problem0c(circle, n, window):
 
     circle.attach_to(window)
     radius = circle.radius
-    center = circle.center
-    center.x = center.x + radius * 2
+    center = rg.Point(circle.center.x, circle.center.y)
+    window.render(0.5)
     for k in range(n):
-        circle1 = rg.Circle(center, radius)
-        center.x = center.x + radius *2
-        circle1.attach_to(window)
+        center.x = center.x + radius * 2
+        kcircle = rg.Circle(center, radius)
+        kcircle.attach_to(window)
         window.render(0.5)
-
-#CIRCLES GENERATE IN THE WRONG ORDER, DONT KNOW WHY
-
-
 
 
 # ----------------------------------------------------------------------
